@@ -1,4 +1,4 @@
-package org.willjt.analyser;
+package org.willjt.solaractivity.analyser;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class IntegerGridParserTest {
         int rows = 0;
         int columns = 0;
 
-        int[][] gridReturned = IntegerGridParser.fromListOfValues(emptyList, rows, columns);
+        int[][] gridReturned = IntegerGridParser.parseIntegerGridFromListOfValues(emptyList, rows, columns);
 
         assertThat(gridReturned.length, is(0));
     }
@@ -32,7 +32,7 @@ public class IntegerGridParserTest {
         int rows = 2;
         int columns = 2;
 
-        int[][] gridReturned = IntegerGridParser.fromListOfValues(listOfValues, rows, columns);
+        int[][] gridReturned = IntegerGridParser.parseIntegerGridFromListOfValues(listOfValues, rows, columns);
 
         assertThat(gridReturned[0][0], equalTo(1));
         assertThat(gridReturned[0][1], equalTo(2));
@@ -48,7 +48,7 @@ public class IntegerGridParserTest {
         int rows = 2;
         int columns = 2;
 
-        int[][] gridReturned = IntegerGridParser.fromListOfValues(listOfValues, rows, columns);
+        int[][] gridReturned = IntegerGridParser.parseIntegerGridFromListOfValues(listOfValues, rows, columns);
 
         assertThat(gridReturned[0][0], equalTo(1));
         assertThat(gridReturned[0][1], equalTo(2));

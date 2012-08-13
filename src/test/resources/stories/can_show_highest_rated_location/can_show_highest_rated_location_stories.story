@@ -1,5 +1,3 @@
-Meta:
-
 Narrative:
 As a NASA scientist
 I want to pinpoint an area with elevated solar activity

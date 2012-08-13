@@ -1,9 +1,9 @@
-package org.willjt.analyser;
+package org.willjt.solaractivity.analyser;
 
 import java.util.List;
 
 public class IntegerGridParser {
-    public static int[][] fromListOfValues(List<Integer> listOfValues, int rowsRequired, int columnsRequired) {
+    public static int[][] parseIntegerGridFromListOfValues(List<Integer> listOfValues, int rowsRequired, int columnsRequired) {
         int[][] ourIntegerGrid = new int[rowsRequired][columnsRequired];
 
         int indexInValuesListWeReached = 0;

@@ -35,10 +35,6 @@
                             <includes>
                                 <include>**/*Stories.java</include>
                             </includes>
-                            <metaFilters>
-                                <metaFilter>+author *</metaFilter>
-                                <metaFilter>-skip</metaFilter>
-                            </metaFilters>
                             <systemProperties>
                                 <property>
                                     <name>java.awt.headless</name>
