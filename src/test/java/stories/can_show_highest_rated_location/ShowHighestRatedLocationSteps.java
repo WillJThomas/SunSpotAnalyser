@@ -11,7 +11,7 @@ import org.willjt.solaractivity.analyser.HeatMeasurementsAnalyser;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static stories.helper_classes.ExamplesTableToHeatMeasurementsAnalyserImporter.heatMeasurementsAnalyserFor;
+import static stories.helper_classes.ExamplesTableIntoHeatMeasurementsAnalyserImporter.heatMeasurementsAnalyserFor;
 
 
 public class ShowHighestRatedLocationSteps extends Embedder {

@@ -5,7 +5,7 @@ import org.willjt.solaractivity.analyser.HeatMeasurementsAnalyser;
 
 import java.util.List;
 
-public class ExamplesTableToHeatMeasurementsAnalyserImporter {
+public class ExamplesTableIntoHeatMeasurementsAnalyserImporter {
 
 
     public static HeatMeasurementsAnalyser heatMeasurementsAnalyserFor(ExamplesTable table) {
