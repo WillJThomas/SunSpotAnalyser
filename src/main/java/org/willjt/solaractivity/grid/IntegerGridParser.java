@@ -1,4 +1,4 @@
-package org.willjt.solaractivity.analyser;
+package org.willjt.solaractivity.grid;
 
 import java.util.List;
 

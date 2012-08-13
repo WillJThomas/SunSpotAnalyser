@@ -1,4 +1,4 @@
-package org.willjt.solaractivity.analyser.calculation;
+package org.willjt.solaractivity.calculation;
 
 public class SolarActivityScoreCalculator {
     private int[][] measurementsGrid;

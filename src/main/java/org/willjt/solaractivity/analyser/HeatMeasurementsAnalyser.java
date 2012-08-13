@@ -1,5 +1,7 @@
 package org.willjt.solaractivity.analyser;
 
+import org.willjt.solaractivity.grid.IntegerGridParser;
+
 import java.util.List;
 
 public class HeatMeasurementsAnalyser {

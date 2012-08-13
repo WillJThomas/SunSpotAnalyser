@@ -1,6 +1,7 @@
-package org.willjt.solaractivity.analyser;
+package org.willjt.solaractivity.grid;
 
 import org.junit.Test;
+import org.willjt.solaractivity.grid.IntegerGridParser;
 
 import java.util.ArrayList;
 import java.util.List;
