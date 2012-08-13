@@ -3,8 +3,8 @@ package org.willjt.solaractivity.grid;
 import java.util.List;
 
 public class IntegerGridParser {
-    public static int[][] parseIntegerGridFromListOfValues(List<Integer> listOfValues, int rowsRequired, int columnsRequired) {
-        int[][] ourIntegerGrid = new int[rowsRequired][columnsRequired];
+    public static int[][] parseIntegerGridFromListOfValues(List<Integer> listOfValues, int columnsRequired, int rowsRequired) {
+        int[][] ourIntegerGrid = new int[columnsRequired][rowsRequired];
 
         int indexInValuesListWeReached = 0;
         for (int row = 0; row < rowsRequired; row++) {
@@ -13,7 +13,7 @@ public class IntegerGridParser {
                 if (indexInValuesListWeReached < listOfValues.size()) {
                     gridValue = listOfValues.get(indexInValuesListWeReached);
                 }
-                ourIntegerGrid[row][column] = gridValue;
+                ourIntegerGrid[column][row] = gridValue;
                 indexInValuesListWeReached++;
             }
         }

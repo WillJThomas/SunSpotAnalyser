@@ -27,7 +27,7 @@ public class CalculateSolarActivityScoreSteps {
     }
 
     @When("I calculate the solar activity score of location ($column,$row)")
-    public void calculateTheSolarActivityScoreFor(int row, int column) {
+    public void calculateTheSolarActivityScoreFor(int column, int row) {
         SolarActivityScoreCalculator calculator = new SolarActivityScoreCalculator(gridOfMeasurements);
         calculatedScore = calculator.scoreForLocation(column, row);
     }

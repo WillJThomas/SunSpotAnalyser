@@ -11,36 +11,36 @@ public class SolarActivityScoreCalculator {
         if (column < 0 || row < 0) {
             throw new IllegalArgumentException("Both column and row number of location must both be at least 0.");
         }
-        if (column > measurementsGrid.length || row > measurementsGrid[0].length) {
+        if (column >= measurementsGrid.length || row >= measurementsGrid[0].length) {
             throw new IllegalArgumentException("This location is out of the grid bounds: " + column + "," + row);
         }
 
         int locationScore = 0;
 
-        int firstColumnToCount = column - 1;
-        int firstRowToCount = row - 1;
+        int indexOfFirstColumnToCount = column - 1;
+        int indexOfFirstRowToCount = row - 1;
 
-        while (firstColumnToCount < 0) {
-            firstColumnToCount++;
+        while (indexOfFirstColumnToCount < 0) {
+            indexOfFirstColumnToCount++;
         }
 
-        while (firstRowToCount < 0) {
-            firstRowToCount++;
+        while (indexOfFirstRowToCount < 0) {
+            indexOfFirstRowToCount++;
         }
 
-        int lastColumnToCount = column + 1;
-        int lastRowToCount = row + 1;
+        int indexOflastColumnToCount = column + 1;
+        int indexOfLastRowToCount = row + 1;
 
-        while (lastColumnToCount > measurementsGrid.length) {
-            lastColumnToCount--;
+        while (indexOflastColumnToCount >= measurementsGrid.length) {
+            indexOflastColumnToCount--;
         }
 
-        while (lastRowToCount > measurementsGrid[0].length) {
-            lastRowToCount--;
+        while (indexOfLastRowToCount >= measurementsGrid[0].length) {
+            indexOfLastRowToCount--;
         }
 
-        for (int columnIndex = firstColumnToCount; columnIndex <= lastColumnToCount; columnIndex++) {
-            for (int rowIndex = firstRowToCount; rowIndex <= lastRowToCount; rowIndex++) {
+        for (int columnIndex = indexOfFirstColumnToCount; columnIndex <= indexOflastColumnToCount; columnIndex++) {
+            for (int rowIndex = indexOfFirstRowToCount; rowIndex <= indexOfLastRowToCount; rowIndex++) {
                 locationScore += measurementsGrid[columnIndex][rowIndex];
             }
         }
