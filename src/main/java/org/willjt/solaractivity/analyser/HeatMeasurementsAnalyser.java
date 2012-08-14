@@ -3,6 +3,8 @@ package org.willjt.solaractivity.analyser;
 import org.willjt.solaractivity.calculation.SolarActivityScoreCalculator;
 import org.willjt.solaractivity.grid.IntegerGridParser;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HeatMeasurementsAnalyser {
@@ -36,6 +38,29 @@ public class HeatMeasurementsAnalyser {
             }
         }
 
-        return new AnalyserResults(highestScore, columnOfLocationWithHighestScore, rowOfLocationWithHighestScore);
+        SolarActivityMeasurement areaWithHighestScore = new SolarActivityMeasurement(columnOfLocationWithHighestScore, rowOfLocationWithHighestScore, highestScore);
+
+        return new AnalyserResults(areaWithHighestScore);
+    }
+
+    public AnalyserResults topNAreasWithHighestSolarActivityScores(int n) {
+        SolarActivityScoreCalculator scoreCalculator = new SolarActivityScoreCalculator(values);
+        
+        List<SolarActivityMeasurement> listOfMeasurements = new ArrayList<SolarActivityMeasurement>();
+
+        for (int columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
+            for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
+                int locationScore = scoreCalculator.scoreForLocation(columnIndex, rowIndex);
+
+                SolarActivityMeasurement measurement = new SolarActivityMeasurement(columnIndex, rowIndex, locationScore);
+                listOfMeasurements.add(measurement);
+            }
+        }
+
+        Collections.sort(listOfMeasurements, Collections.reverseOrder());
+
+        List<SolarActivityMeasurement> topNAreas = listOfMeasurements.subList(0, n);
+
+        return new AnalyserResults(topNAreas);
     }
 }
