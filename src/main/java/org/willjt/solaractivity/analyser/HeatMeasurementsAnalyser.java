@@ -5,9 +5,11 @@ import org.willjt.solaractivity.grid.IntegerGridParser;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class HeatMeasurementsAnalyser {
+    public static final Comparator<Object> DESCENDING_ORDER_BY_SOLAR_ACTIVITY_SCORE = Collections.reverseOrder();
     private int[][] values;
     private int numberOfColumns;
     private int numberOfRows;
@@ -20,33 +22,25 @@ public class HeatMeasurementsAnalyser {
     }
 
     public AnalyserResults areaWithHighestSolarActivityScore() {
-        int highestScore = 0;
-        int columnOfLocationWithHighestScore = 0;
-        int rowOfLocationWithHighestScore = 0;
+        List<SolarActivityMeasurement> listOfMeasurements = measurementsListedFromHighestToLowestSolarActivityScore();
 
-        SolarActivityScoreCalculator scoreCalculator = new SolarActivityScoreCalculator(values);
-
-        for (int columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
-            for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-                int locationScore = scoreCalculator.scoreForLocation(columnIndex, rowIndex);
-
-                if (locationScore >= highestScore) {
-                    highestScore = locationScore;
-                    columnOfLocationWithHighestScore = columnIndex;
-                    rowOfLocationWithHighestScore = rowIndex;
-                }
-            }
-        }
-
-        SolarActivityMeasurement areaWithHighestScore = new SolarActivityMeasurement(columnOfLocationWithHighestScore, rowOfLocationWithHighestScore, highestScore);
+        SolarActivityMeasurement areaWithHighestScore = listOfMeasurements.get(0);
 
         return new AnalyserResults(areaWithHighestScore);
     }
 
     public AnalyserResults topNAreasWithHighestSolarActivityScores(int n) {
-        SolarActivityScoreCalculator scoreCalculator = new SolarActivityScoreCalculator(values);
-        
+        List<SolarActivityMeasurement> listOfMeasurements = measurementsListedFromHighestToLowestSolarActivityScore();
+
+        List<SolarActivityMeasurement> topNAreas = listOfMeasurements.subList(0, n);
+
+        return new AnalyserResults(topNAreas);
+    }
+
+    private List<SolarActivityMeasurement> measurementsListedFromHighestToLowestSolarActivityScore() {
         List<SolarActivityMeasurement> listOfMeasurements = new ArrayList<SolarActivityMeasurement>();
+
+        SolarActivityScoreCalculator scoreCalculator = new SolarActivityScoreCalculator(values);
 
         for (int columnIndex = 0; columnIndex < numberOfColumns; columnIndex++) {
             for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
@@ -57,10 +51,7 @@ public class HeatMeasurementsAnalyser {
             }
         }
 
-        Collections.sort(listOfMeasurements, Collections.reverseOrder());
-
-        List<SolarActivityMeasurement> topNAreas = listOfMeasurements.subList(0, n);
-
-        return new AnalyserResults(topNAreas);
+        Collections.sort(listOfMeasurements, DESCENDING_ORDER_BY_SOLAR_ACTIVITY_SCORE);
+        return listOfMeasurements;
     }
 }

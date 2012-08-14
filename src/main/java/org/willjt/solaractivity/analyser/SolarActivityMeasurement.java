@@ -11,19 +11,6 @@ public class SolarActivityMeasurement implements Comparable<SolarActivityMeasure
         this.solarActivityScore = solarActivityScore;
     }
 
-    @Override
-    public int compareTo(SolarActivityMeasurement otherMeasurement) {
-        if(solarActivityScore < otherMeasurement.solarActivityScore) {
-            return -1;
-        }
-        else if (solarActivityScore == otherMeasurement.solarActivityScore) {
-            return 0;
-        }
-        else {
-            return 1;
-        }
-    }
-
     public int column() {
         return columnIndex;
     }
@@ -34,5 +21,16 @@ public class SolarActivityMeasurement implements Comparable<SolarActivityMeasure
 
     public int solarActivityScore() {
         return solarActivityScore;
+    }
+
+    @Override
+    public int compareTo(SolarActivityMeasurement otherMeasurement) {
+        if (solarActivityScore < otherMeasurement.solarActivityScore) {
+            return -1;
+        } else if (solarActivityScore == otherMeasurement.solarActivityScore) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 }
