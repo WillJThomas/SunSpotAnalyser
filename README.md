@@ -4,17 +4,15 @@ I've implemented this problem in Java, using JBehave tests to verify my applicat
 
 === Getting started ===
 
-# Obviously Java should be installed (Java 6 SDK recommended)
-# This application uses maven to manage it's dependencies, so you will need maven installed
-# A git client should be installed to pull this code from the repository
+1. Obviously Java should be installed (Java 6 SDK recommended)
+2. This application uses maven to manage it's dependencies, so you will need maven installed
+3. A git client should be installed to pull this code from the repository
 
 To run:
 
-{{{
 $ git clone https://bitbucket.org/willjthomas/sunspotanalyser.git
 $ cd sunspotanalyser
 $ mvn clean install
-}}}
 
 You should see a list of tests run, and they should all pass! 
 
@@ -22,15 +20,12 @@ You should see a list of tests run, and they should all pass!
 
 Maven produces a lot of output, so I'll highlight a few key things to look for. Assuming you ran the 'clean install' command as directed, if all tests passed you should see a message like this:
 
-{{{
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-}}}
 
 Since I've used JBehave, buried in the console output should also be easy to read plain-text descriptions for some of the test scenarios run. Look out for something like:
 
-{{{
 Scenario: Top n areas with elevated solar activity
 Given an area with the following heat measurements:
 |Col0|Col1|Col2|Col3|
@@ -40,7 +35,6 @@ Given an area with the following heat measurements:
 |2|3|4|4|
 When I request the top 3 highest solar activity scores
 Then the analyser displays: (1,2 score:27)(1,1 score:25)(2,2 score:23)
-}}}
 
 === Running individual tests ===
 
