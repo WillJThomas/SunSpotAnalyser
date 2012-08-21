@@ -10,9 +10,9 @@ I've implemented this problem in Java, using JBehave tests to verify my applicat
 
 To run:
 
-1. $ git clone https://bitbucket.org/willjthomas/sunspotanalyser.git
-2. $ cd sunspotanalyser
-3. $ mvn clean install
+    git clone https://bitbucket.org/willjthomas/sunspotanalyser.git
+    cd sunspotanalyser
+    mvn clean install
 
 You should see a list of tests run, and they should all pass! 
 
@@ -20,21 +20,22 @@ You should see a list of tests run, and they should all pass!
 
 Maven produces a lot of output, so I'll highlight a few key things to look for. Assuming you ran the 'clean install' command as directed, if all tests passed you should see a message like this:
 
-[INFO] ---------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ---------------------------------------------------------
+    [INFO] ---------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ---------------------------------------------------------
 
 Since I've used JBehave, buried in the console output should also be easy to read plain-text descriptions for some of the test scenarios run. Look out for something like:
 
-Scenario: Top n areas with elevated solar activity
-Given an area with the following heat measurements:
-|Col0|Col1|Col2|Col3|
-|2|3|2|1|
-|4|4|2|0|
-|3|4|1|1|
-|2|3|4|4|
-When I request the top 3 highest solar activity scores
-Then the analyser displays: (1,2 score:27)(1,1 score:25)(2,2 score:23)
+    Scenario: Top n areas with elevated solar activity
+    Given an area with the following heat measurements:
+    |Col0|Col1|Col2|Col3|
+    |2|3|2|1|
+    |4|4|2|0|
+    |3|4|1|1|
+    |2|3|4|4|
+    When I request the top 3 highest solar activity scores
+    Then the analyser displays: (1,2 score:27)(1,1 score:25)(2,2 score:23)
+
 
 === Running individual tests ===
 
@@ -51,17 +52,17 @@ My advice would be to start by reading the plain-text test scenarios in src/test
 
 Here's a bit of information about the whole directory structure though:
 
-|src/main/java|holds all the core application source code|
-|src/test/java|holds all the automated tests, this includes a few lower-level unit tests|
-|src/test/java/stories|holds the Java implementation of each high-level JBehave test|
-|src/test/resources/stories|plain text JBehave test scenarios which map to Java classes in src/test/java/stories|
+    |-- src/main/java - holds all the core application source code
+    |-- src/test/java - holds all the automated tests, this includes a few lower-level unit tests
+    |-- src/test/java/stories - the Java implementation of each high-level JBehave test
+    |-- src/test/resources/stories - plain text JBehave test scenarios which map to Java classes in src/test/java/stories|
 
-For some of the classes e.g. HeatMeasurementsAnalyser, I decided against writing unit tests. The main reason was working with grid test inputs in Junit classes was messy and ineffective. Instead I focussed on purely higher-level JBehave tests that already tested the core expected behaviour for these types of classes. If you can suggest improvements to my testing approach, I'd be happy to hear some alternative points of view though.
+For some of the classes e.g. HeatMeasurementsAnalyser, I decided against writing JUnit-based unit tests. The main reason was working with grid test inputs in Junit classes was messy and ineffective. Instead I focussed on purely JBehave tests that already tested the core expected behaviour for these types of classes. If you can suggest improvements to my testing approach, I'd be happy to hear some alternative points of view though.
 
 
 === Configuration ===
 
-This section is for information purposes only. **You shouldn't need to change any configuration within the source directories to run the application.**
+This section is for information purposes only. *You shouldn't need to change any configuration within the source directories to run the application.*
 
 The only configuration file in the application source is the pom.xml file in the base directory. This is an application descriptor, which maven uses.
 
@@ -69,7 +70,7 @@ In this file is a list of a few dependencies the application uses e.g. JUnit, Mo
 
 The pom.xml file also has some configuration for JBehave, which ensures the JBehave test scenarios are run in the same build phase as integration tests would normally run. I configured this largely based on this guide:
 
-http://jbehave.org/reference/stable/maven-goals.html
+[http://jbehave.org/reference/stable/maven-goals.html](http://jbehave.org/reference/stable/maven-goals.html)
 
-You may notice, maven searches for any java file in the test sources with a name matching the pattern: */*Stories.java. Each one it finds, it tries to run using a JUnit runner.
+You may notice, maven searches for any java file in the test sources with a name matching the pattern: /*/*Stories.java. Each one it finds, it tries to run using a JUnit runner.
 
