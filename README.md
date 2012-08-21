@@ -10,9 +10,9 @@ I've implemented this problem in Java, using JBehave tests to verify my applicat
 
 To run:
 
-$ git clone https://bitbucket.org/willjthomas/sunspotanalyser.git
-$ cd sunspotanalyser
-$ mvn clean install
+1. $ git clone https://bitbucket.org/willjthomas/sunspotanalyser.git
+2. $ cd sunspotanalyser
+3. $ mvn clean install
 
 You should see a list of tests run, and they should all pass! 
 
@@ -20,9 +20,9 @@ You should see a list of tests run, and they should all pass!
 
 Maven produces a lot of output, so I'll highlight a few key things to look for. Assuming you ran the 'clean install' command as directed, if all tests passed you should see a message like this:
 
-[INFO] ------------------------------------------------------------------------
+[INFO] ---------------------------------------------------------
 [INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
+[INFO] ---------------------------------------------------------
 
 Since I've used JBehave, buried in the console output should also be easy to read plain-text descriptions for some of the test scenarios run. Look out for something like:
 
