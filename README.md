@@ -1,7 +1,7 @@
 Welcome
 =======
 
-I've implemented this problem in Java, using JBehave tests to verify my application can transform the listed test inputs into the expected outputs.
+I've implemented this problem in Java, using JBehave tests to verify my application can transform the listed test inputs into the expected outputs. The full problem description including test inputs/outputs is available on the wiki.
 
 Getting started
 ===============
