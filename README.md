@@ -1,8 +1,10 @@
-== Welcome ==
+Welcome
+=======
 
 I've implemented this problem in Java, using JBehave tests to verify my application can transform the listed test inputs into the expected outputs.
 
-=== Getting started ===
+Getting started
+===============
 
 1. Obviously Java should be installed (Java 6 SDK recommended)
 2. This application uses maven to manage it's dependencies, so you will need maven installed
@@ -16,7 +18,8 @@ To run:
 
 You should see a list of tests run, and they should all pass! 
 
-=== Understanding the maven output ===
+Understanding the maven output
+==============================
 
 Maven produces a lot of output, so I'll highlight a few key things to look for. Assuming you ran the 'clean install' command as directed, if all tests passed you should see a message like this:
 
@@ -37,7 +40,8 @@ Since I've used JBehave, buried in the console output should also be easy to rea
     Then the analyser displays: (1,2 score:27)(1,1 score:25)(2,2 score:23)
 
 
-=== Running individual tests ===
+Running individual tests
+========================
 
 If you'd prefer to run tests using a JUnit runner, for example through an IDE, then that's not a  problem. 
 
@@ -46,7 +50,8 @@ In the 'src/test/java' directory all purely JUnit tests will contain some method
 JBehave tests can also be run in the same way, just look for classes with a name matching the pattern *Stories.java in the 'src/test/java/stories' directory e.g. CanShowTopNHighestRatedLocationsStories.java. These can be run in exactly the same way as pure JUnit tests, and they will execute the corresponding plain-text scenario in 'src/test/resources/stories' e.g. can_show_top_n_highest_rated_locations_stories.story.
 
 
-=== Inspecting the code ===
+Inspecting the code
+===================
 
 My advice would be to start by reading the plain-text test scenarios in src/test/resources/stories.
 
@@ -60,7 +65,7 @@ Here's a bit of information about the whole directory structure though:
 For some of the classes e.g. HeatMeasurementsAnalyser, I decided against writing JUnit-based unit tests. The main reason was working with grid test inputs in Junit classes was messy and ineffective. Instead I focussed on purely JBehave tests that already tested the core expected behaviour for these types of classes. If you can suggest improvements to my testing approach, I'd be happy to hear some alternative points of view though.
 
 
-=== Configuration ===
+== Configuration
 
 This section is for information purposes only. *You shouldn't need to change any configuration within the source directories to run the application.*
 
