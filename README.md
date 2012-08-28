@@ -65,7 +65,8 @@ Here's a bit of information about the whole directory structure though:
 For some of the classes e.g. HeatMeasurementsAnalyser, I decided against writing JUnit-based unit tests. The main reason was working with grid test inputs in Junit classes was messy and ineffective. Instead I focussed on purely JBehave tests that already tested the core expected behaviour for these types of classes. If you can suggest improvements to my testing approach, I'd be happy to hear some alternative points of view though.
 
 
-== Configuration
+Configuration
+=============
 
 This section is for information purposes only. *You shouldn't need to change any configuration within the source directories to run the application.*
 
