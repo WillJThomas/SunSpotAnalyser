@@ -1,14 +1,15 @@
 Welcome
 =======
 
-I've implemented this problem in Java, using JBehave tests to verify my application can transform the listed test inputs into the expected outputs. The full problem description including test inputs/outputs is available on the wiki.
+This a contrived task showcasing an approach to Behaviour-Driven Development in Java, using JBehave.
+Before you dive into the code, please read the full problem description available on the wiki.
 
 Getting started
 ===============
 
 1. Obviously Java should be installed (Java 6 SDK recommended)
-2. This application uses maven to manage it's dependencies, so you will need maven installed
-3. A git client should be installed to pull this code from the repository
+2. This application uses maven to manage it's dependencies, so you will need maven installed (see http://maven.apache.org/)
+3. A git client should be installed so you can download the code from this repository
 
 To run:
 
@@ -16,12 +17,12 @@ To run:
     cd sunspotanalyser
     mvn clean install
 
-You should see a list of tests run, and they should all pass! 
+This will ask maven to build and package the application, then run it's automated tests. All the tests should pass! 
 
 Understanding the maven output
 ==============================
 
-Maven produces a lot of output, so I'll highlight a few key things to look for. Assuming you ran the 'clean install' command as directed, if all tests passed you should see a message like this:
+Maven produces a lot of output, so I'll highlight a few key things to look for. Assuming you ran the 'clean install' command as directed, if the build was successful and all tests passed you should see a message like this:
 
     [INFO] ---------------------------------------------------------
     [INFO] BUILD SUCCESS
@@ -53,7 +54,7 @@ JBehave tests can also be run in the same way, just look for classes with a name
 Inspecting the code
 ===================
 
-My advice would be to start by reading the plain-text test scenarios in src/test/resources/stories.
+My advice would be to start by reading the plain-text test scenarios in src/test/resources/stories. These are high-level descriptions of features the application should have.
 
 Here's a bit of information about the whole directory structure though:
 
@@ -61,8 +62,6 @@ Here's a bit of information about the whole directory structure though:
     |-- src/test/java - holds all the automated tests, this includes a few lower-level unit tests
     |-- src/test/java/stories - the Java implementation of each high-level JBehave test
     |-- src/test/resources/stories - plain text JBehave test scenarios which map to Java classes in src/test/java/stories|
-
-For some of the classes e.g. HeatMeasurementsAnalyser, I decided against writing JUnit-based unit tests. The main reason was working with grid test inputs in Junit classes was messy and ineffective. Instead I focussed on purely JBehave tests that already tested the core expected behaviour for these types of classes. If you can suggest improvements to my testing approach, I'd be happy to hear some alternative points of view though.
 
 
 Configuration
